@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>love's photobooth</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Home Page -->
+  <div id="home-page" class="page">
+    <h1><span class="title-loves">love's</span> <span class="title-photobooth">photobooth</span></h1>
+    <p class="subheading">capture the love, capture the beauty</p>
+    <button id="start-home">start</button>
+    <p class="footer">made by lynard andres<br>for many nicole</p>
+  </div>
+
+  <!-- Welcome Page -->
+  <div id="welcome-page" class="page" style="display: none;">
+    <h1>Welcome!</h1>
+    <p>A simple photobook to display one's beauty</p>
+    <p>You have 5 seconds for each shot - no retakes!</p>
+    <p>This photobook captures four photos in a row. Have fun and show your beauty!</p>
+    <button id="start-welcome">Start</button>
+  </div>
+
+  <!-- Picture Page -->
+  <div id="picture-page" class="page" style="display: none;">
+    <h1><span class="title-loves">love's</span> <span class="title-photobooth">photobooth</span></h1>
+    <div class="camera-container">
+      <video id="video" autoplay></video>
+      <canvas id="canvas" style="display: none;"></canvas>
+    </div>
+    <div id="countdown"></div>
+    <button id="capture-btn">📸 start countdown</button>
+    <div id="photos"></div>
+  </div>
+
+  <!-- Final Collage Page -->
+  <div id="collage-page" class="page" style="display: none;">
+    <h1>your photos</h1>
+    <div class="collage-container">
+      <img src="photobooth-template.png" alt="Collage Template" id="collage-template">
+      <canvas id="final-canvas"></canvas>
+    </div>
+    <div class="buttons">
+      <button id="download-btn">download photo</button>
+      <button id="home-btn">back to home</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
