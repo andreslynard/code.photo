@@ -228,7 +228,6 @@ function calculatePhotoPositions(config) {
 }
 
 // Function to compose the final image
-// Function to compose the final image
 function composeFinalImage() {
   const finalCanvas = document.getElementById('final-canvas');
   const finalContext = finalCanvas.getContext('2d');
@@ -237,15 +236,18 @@ function composeFinalImage() {
   finalCanvas.width = collageConfig.width;
   finalCanvas.height = collageConfig.height;
 
+  // Clear the canvas
+  finalContext.clearRect(0, 0, finalCanvas.width, finalCanvas.height);
+
   // Fill background with solid color or gradient
   if (collageConfig.gradientBackground) {
-    // Create gradient that extends to the entire strip
+    // Create gradient that extends to the entire canvas
     const gradient = finalContext.createLinearGradient(0, 0, finalCanvas.width, finalCanvas.height);
     gradient.addColorStop(0, collageConfig.gradientBackground.color1);
     gradient.addColorStop(1, collageConfig.gradientBackground.color2);
     finalContext.fillStyle = gradient;
   } else {
-    // Use solid background color for the entire strip
+    // Use solid background color for the entire canvas
     finalContext.fillStyle = collageConfig.backgroundColor;
   }
   // Fill the entire canvas with the selected background
@@ -325,7 +327,6 @@ function composeFinalImage() {
     finalCanvas.height - collageConfig.bottomSectionHeight / 2 - 25
   );
 }
-
 // Update the collage in real-time as users adjust inputs
 backgroundColorInput.addEventListener('input', () => {
   collageConfig.backgroundColor = backgroundColorInput.value;
