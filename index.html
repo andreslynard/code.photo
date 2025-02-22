@@ -37,18 +37,45 @@
     <div id="photos"></div>
   </div>
 
-  <!-- Final Collage Page -->
-  <div id="collage-page" class="page" style="display: none;">
-    <h1>your photos</h1>
-    <div class="collage-container">
-      <img src="photobooth-template.png" alt="Collage Template" id="collage-template">
-      <canvas id="final-canvas"></canvas>
-    </div>
-    <div class="buttons">
-      <button id="download-btn">download photo</button>
-      <button id="home-btn">back to home</button>
-    </div>
+<!-- Final Collage Page -->
+<div id="collage-page" style="display: none;">
+  <h2>Customize Your Collage</h2>
+  
+  <!-- Customization Controls -->
+  <div id="customization-panel">
+    <label for="backgroundColor">Background Color:</label>
+    <input type="color" id="backgroundColor" value="#ffb6e1">
+
+    <label for="gradientColor1">Gradient Color 1:</label>
+    <input type="color" id="gradientColor1" value="#ff9aa2">
+  
+    <label for="gradientColor2">Gradient Color 2:</label>
+    <input type="color" id="gradientColor2" value="#ffebf3">
+  
+    <label for="useGradient">Use Gradient Background:</label>
+    <input type="checkbox" id="useGradient">
+
+    <label for="textColor">Text Color:</label>
+    <input type="color" id="textColor" value="#ffffff">
+
+    <label for="bottomText">Bottom Text:</label>
+    <input type="text" id="bottomText" value="photobooth">
+
+    <label for="numberOfPhotos">Number of Photos:</label>
+    <input type="number" id="numberOfPhotos" min="1" max="4" value="4">
+    
+    <!-- Download Collage Button -->
+    <button id="download-btn">Download Collage</button>
+
+    <!-- Back to Home Button -->
+    <button id="back-to-home" class="back-to-home-btn">Home</button>
   </div>
+
+  <!-- Collage Display -->
+  <div id="collage-display">
+    <canvas id="final-canvas"></canvas>
+  </div>
+</div>
 
   <script src="script.js"></script>
 </body>
