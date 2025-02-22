@@ -301,13 +301,16 @@ function composeFinalImage() {
   });
 
   // Draw the bottom section for text/logo
-  finalContext.fillStyle = collageConfig.backgroundColor;
-  finalContext.fillRect(
-    0,
-    finalCanvas.height - collageConfig.bottomSectionHeight,
-    finalCanvas.width,
-    collageConfig.bottomSectionHeight
-  );
+  if (!collageConfig.gradientBackground) {
+    // If no gradient is used, fill the bottom section with the background color
+    finalContext.fillStyle = collageConfig.backgroundColor;
+    finalContext.fillRect(
+      0,
+      finalCanvas.height - collageConfig.bottomSectionHeight,
+      finalCanvas.width,
+      collageConfig.bottomSectionHeight
+    );
+  }
 
   // Add text at the bottom
   finalContext.fillStyle = collageConfig.textColor;
