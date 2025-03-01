@@ -1,13 +1,39 @@
 /* General Styles */
 body {
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, #ff9aa2, #ffebf3);
+  background-image: linear-gradient(
+    330deg,
+    hsl(278deg 35% 78%) 0%,
+    hsl(289deg 34% 79%) 13%,
+    hsl(300deg 33% 79%) 19%,
+    hsl(311deg 40% 81%) 23%,
+    hsl(319deg 50% 83%) 27%,
+    hsl(326deg 61% 85%) 31%,
+    hsl(331deg 75% 87%) 34%,
+    hsl(336deg 93% 89%) 38%,
+    hsl(337deg 100% 89%) 41%,
+    hsl(337deg 100% 88%) 44%,
+    hsl(338deg 100% 88%) 47%,
+    hsl(338deg 100% 87%) 50%,
+    hsl(338deg 100% 86%) 53%,
+    hsl(338deg 100% 85%) 56%,
+    hsl(338deg 100% 85%) 59%,
+    hsl(337deg 91% 83%) 62%,
+    hsl(334deg 70% 80%) 66%,
+    hsl(329deg 54% 76%) 69%,
+    hsl(323deg 42% 72%) 73%,
+    hsl(315deg 32% 68%) 77%,
+    hsl(303deg 24% 64%) 81%,
+    hsl(286deg 22% 61%) 87%,
+    hsl(270deg 23% 58%) 100%
+  );
   color: #ff6f91;
   text-align: center;
   margin: 0;
   padding: 20px;
 }
 
+/* Rest of your CSS remains unchanged */
 .page {
   display: flex;
   flex-direction: column;
@@ -366,5 +392,4 @@ video {
       padding: 4px 8px; /* Smaller padding for phones */
     }
   }
-
 }
