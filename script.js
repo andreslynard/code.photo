@@ -20,12 +20,11 @@ const homePage = document.getElementById('home-page');
 const welcomePage = document.getElementById('welcome-page');
 const picturePage = document.getElementById('picture-page');
 const collagePage = document.getElementById('collage-page');
-const startHomeBtn = document.getElementById('start-home');
+const startHomeBtn = document.getElementById('start-home'); // Correct ID
 const startWelcomeBtn = document.getElementById('start-welcome');
 const captureBtn = document.getElementById('capture-btn');
 const downloadBtn = document.getElementById('download-btn');
-const homeBtn = document.getElementById('home-btn');
-const backToPictureBtn = document.getElementById('back-to-picture');
+const backToHomeBtn = document.getElementById('back-to-home');
 const countdownDiv = document.getElementById('countdown');
 
 let images = [];
@@ -33,14 +32,14 @@ let countdownTimer = null;
 
 // Navigate from Home to Welcome Page
 startHomeBtn.addEventListener('click', () => {
-  homePage.style.display = 'none';
-  welcomePage.style.display = 'flex';
+  homePage.style.display = 'none'; // Hide the home page
+  welcomePage.style.display = 'flex'; // Show the welcome page
 });
 
 // Navigate from Welcome to Picture Page
 startWelcomeBtn.addEventListener('click', () => {
-  welcomePage.style.display = 'none';
-  picturePage.style.display = 'flex';
+  welcomePage.style.display = 'none'; // Hide the welcome page
+  picturePage.style.display = 'flex'; // Show the picture page
 });
 
 // Access camera
@@ -85,7 +84,7 @@ function startCountdown(photosRemaining) {
 
     // Navigate to the Collage Page
     picturePage.style.display = 'none';
-    collagePage.style.display = 'flex'; // Add this line
+    collagePage.style.display = 'flex'; // Show the collage page
     return;
   }
 
@@ -107,14 +106,23 @@ function startCountdown(photosRemaining) {
   }
 
   function capturePhoto() {
-    const context = canvas.getContext('2d');
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-    const imgUrl = canvas.toDataURL('image/png');
+    const tempCanvas = document.createElement('canvas');
+    const tempContext = tempCanvas.getContext('2d');
+  
+    // Set temporary canvas dimensions to match the video
+    tempCanvas.width = video.videoWidth;
+    tempCanvas.height = video.videoHeight;
+  
+    // Draw the current video frame onto the temporary canvas
+    tempContext.drawImage(video, 0, 0, tempCanvas.width, tempCanvas.height);
+  
+    // Convert the temporary canvas to a data URL
+    const imgUrl = tempCanvas.toDataURL('image/png');
+  
+    // Add the captured image to the images array
     images.push(imgUrl);
-
+  
+    // Create an image element for the photo preview
     const img = document.createElement('img');
     img.src = imgUrl;
     img.style.width = '100px';
@@ -122,7 +130,9 @@ function startCountdown(photosRemaining) {
     img.style.objectFit = 'cover';
     img.style.border = '3px solid ' + collageTheme.borderColor;
     img.style.borderRadius = '5px';
-    photosContainer.appendChild(img);
+  
+    // Append the image to the photos container
+    document.getElementById('photos').appendChild(img);
   }
 }
 
@@ -327,6 +337,7 @@ function composeFinalImage() {
     finalCanvas.height - collageConfig.bottomSectionHeight / 2 - 25
   );
 }
+
 // Update the collage in real-time as users adjust inputs
 backgroundColorInput.addEventListener('input', () => {
   collageConfig.backgroundColor = backgroundColorInput.value;
@@ -362,7 +373,6 @@ downloadBtn.addEventListener('click', () => {
 });
 
 // Add event listener for the "Back to Home" button
-const backToHomeBtn = document.getElementById('back-to-home');
 backToHomeBtn.addEventListener('click', () => {
   collagePage.style.display = 'none';
   homePage.style.display = 'flex';

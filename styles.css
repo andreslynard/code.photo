@@ -1,10 +1,27 @@
+/* KEYFRAMES */
+@keyframes fade-up {
+  0% {
+    opacity:0;
+    transform: translateY(30px) scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    tansform: translateY(0px) scale(1);
+  }
+}
 /* General Styles */
-body {
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
   font-family: 'Montserrat', sans-serif;
   background-image: linear-gradient(
     330deg,
     hsl(278deg 35% 78%) 0%,
-    hsl(289deg 34% 79%) 13%,
+    hsl(289, 35%, 79%) 13%,
     hsl(300deg 33% 79%) 19%,
     hsl(311deg 40% 81%) 23%,
     hsl(319deg 50% 83%) 27%,
@@ -27,60 +44,43 @@ body {
     hsl(286deg 22% 61%) 87%,
     hsl(270deg 23% 58%) 100%
   );
+  background-attachment: fixed;
+  background-size: cover;
   color: #ff6f91;
   text-align: center;
-  margin: 0;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Rest of your CSS remains unchanged */
 .page {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  flex: 1;
+  animation: fade-up 0.5s;
 }
 
-.title-loves {
-  font-size: 1.7rem;
-  color: white;
-  position: relative;
-  top: -55px;
-  left: 135px;
-  text-stroke: 2px #ff6f91;
-  text-shadow: 
-    3px 3px 0 #ff6f91,
-    -3px -3px 0 #ff6f91,
-    3px -3px 0 #ff6f91,
-    -3px 3px 0 #ff6f91,
-    0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.title-photobooth {
-  font-size: 4.6rem;
-  color: white;
-  position: relative;
-  top: 0px;
-  left: -30px;
-  text-stroke: 2px #ff6f91;
-  text-shadow: 
-    3px 3px 0 #ff6f91,
-    -3px -3px 0 #ff6f91,
-    3px -3px 0 #ff6f91,
-    -3px 3px 0 #ff6f91,
-    0 0 10px rgba(0, 0, 0, 0.5);
+.title-image {
+  width: 30rem;
+  height: auto;
+  margin: 0 auto;
 }
 
 .subheading {
   font-size: 1.5rem;
-  margin-bottom: 20px;
-  position: relative;
-  top: -67px;
-  left: 25px;
+  margin-bottom: 40px;
   color: white;
   text-stroke: 1px #ff6f91;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  top: -67px;
+  left: 25px;
 }
 
 button {
@@ -93,12 +93,13 @@ button {
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease;
   margin: 10px;
 }
 
 button:hover {
   background-color: #ff9aa2;
+  transform: translateY(-10px);
 }
 
 .footer {
@@ -107,93 +108,236 @@ button:hover {
   text-align: center;
 }
 
+/* Welcome Page Styles */
+.welcome-page {
+  width: 100%;
+  max-width: 1500px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Changed from 'left' to 'flex-start' */
+  justify-content: center;
+  min-height: 100vh; /* Ensures full viewport height */
+  animation: fade-up 0.5s;
+}
+
+/* Responsive Typography */
+#welcome-page h1 {
+  text-align: left;
+  color: #ff6f91;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.443);
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  line-height: 1.2;
+  font-size: clamp(2.5rem, 8vw, 5rem); /* Responsive font scaling */
+}
+
+.welcome-page p1 {
+  text-align: left;
+  color: white;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  line-height: 1.5;
+  font-size: clamp(1rem, 3vw, 1.5rem); 
+}
+
+.welcome-page p2 {
+  text-align: left;
+  color: white;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  line-height: 1.5;
+  font-size: clamp(1rem, 3vw, 1.5rem); 
+}
+
+.welcome-page p3 {
+  text-align: left;
+  color: white;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  line-height: 1.5;
+  font-size: clamp(1rem, 3vw, 1.5rem); 
+}
+
+#start-welcome {
+  position: relative; 
+  margin-top: 2rem;
+  margin-left: 2rem;
+  height: auto;
+  width: auto;
+  min-height: 60px;
+  padding: 1rem 2rem;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  align-self: flex-start; 
+}
+
+/* Camera Container */
 .camera-container {
+  display: flex; /* Use Flexbox for side-by-side layout */
+  align-items: center; /* Align items to the top */
+  gap: 20px; /* Add spacing between video and photo previews */
   background-color: #fff;
   border: 10px solid #ff9aa2;
   border-radius: 20px;
   padding: 10px;
   margin-bottom: 20px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 600px;
-  height: 450px;
+  width: 90%; /* Fixed width */
+  max-width: 800px; /* Limit maximum width */
+  height: auto; /* Allow height to adjust automatically */
+  scale: 80%; 
 }
 
-video {
-  width: 100%;
-  border-radius: 10px;
-  transform: scaleX(-1);
-}
-
-#countdown {
-  font-size: 2rem;
-  margin: 20px 0;
-  color: #ff6f91;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-#photos {
+/* Video and Canvas Section */
+.camera-section {
+  flex: none; /* Allow this section to grow */
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Add spacing between video and canvas */
+}
+
+/* Video Element */
+video {
+  width: 100%; /* Full width of the container */
+  border-radius: 10px; /* Rounded corners */
+  transform: scaleX(-1); /* Mirror the video */
+}
+
+/* Countdown Text */
+#countdown {
+  font-size: clamp(1.2rem, 4vw, 2rem); /* Responsive font size */
+  margin: 5px 0; /* Reduced margin */
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  top: -570px;
+  left: 0px;
+}
+
+/* Photo Previews Container */
+#photos {
+  flex: 0 0 110px; /* Fixed width for photo previews */
+  display: flex;
+  flex-direction: column; /* Stack photos vertically */
+  gap: 5px; /* Add spacing between photos */
+  overflow-y: none; /* Allow scrolling if photos overflow */
+  max-height: 700px; /* Limit height to prevent overflow */
 }
 
 #photos img {
   border: 5px solid #ff9aa2;
   border-radius: 10px;
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
+  width: 100px; /* Fixed width for previews */
+  height: 100px; /* Fixed height for previews */
+  object-fit: cover; /* Maintain aspect ratio */
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-#collage-page {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  padding: 20px;
+/* Capture Button */
+#capture-btn {
+  background-color: #ff6f91;
+  color: white;
+  border: solid; 
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  margin-top: -70px;
 }
 
+#capture-btn:hover {
+  background-color: #ff9aa2;
+  transform: translateY(-5px);
+}
+
+/* Collage Page Layout */
+#collage-page {
+  display: flex;
+  flex-direction: row; /* Always side by side */
+  align-items: center; /* Center vertically */
+  align-content: center;
+  justify-content: center; /* Center horizontally */
+  width: 90%; /* Use 90% of the viewport width */
+  max-width: 1200px; /* Limit maximum width */
+  height: 90vh; /* Use 90% of the viewport height */
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 5px; /* Add spacing between panel and collage */
+  overflow: hidden; /* Prevent overflow */
+  animation: fade-up 0.5s;
+}
+
+/* Customization Panel (Left) */
 #customization-panel {
-  width: 300px;
+  flex: 0 1 25%; /* Allow shrinking, initial width 25% */
+  min-width: 200px; /* Minimum width to prevent shrinking too much */
+  max-width: 300px; /* Maximum width to prevent growing too much */
   padding: 20px;
   background: #f9f9f9;
-  border-radius: 10px;
+  border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Add spacing between elements */
+}
+
+#customization-panel h2 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem); /* Responsive font size */
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 #customization-panel label {
   display: block;
-  margin-top: 10px;
+  margin-top: 5px;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem); /* Responsive font size */
 }
 
 #customization-panel input {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
+  padding: 2px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem); /* Responsive font size */
 }
 
 #customization-panel button {
-  margin-top: 20px;
-  padding: 10px 20px;
+  margin-top: 10px;
+  padding: 8px 16px;
   background: #ff6f91;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: clamp(0.9rem, 1.5vw, 1rem); /* Responsive font size */
 }
 
+/* Collage Display (Right) */
 #collage-display {
-  flex-grow: 1;
+  flex: 1 1 75%; /* Allow growing, initial width 75% */
+  max-width: 300px; /* Limit maximum width */
+  height: 100%; /* Take full height of parent */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #final-canvas {
+  width: 70%; /* Ensure canvas fits within its container */
+  height: 100%; /* Take full height of parent */
+  max-height: 100vh; /* Limit height to 80% of the viewport height */
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ 
 }
 
 .buttons {
@@ -202,34 +346,28 @@ video {
   gap: 10px;
 }
 
-/* Style for the Back to Home button */
 .back-to-home-btn {
-  font-size: 1rem; /* Smaller font size */
-  padding: 6px 12px; /* Smaller padding */
-  margin-top: 10px; /* Add some spacing */
-  background-color: #ff6f91; /* Match the theme */
-  color: white; /* Match the theme */
+  font-size: 1rem;
+  padding: 6px 12px;
+  margin-top: 10px;
+  background-color: #ff6f91;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-.back-to-home-btn:hover {
-  background-color: #ff9aa2; /* Hover effect */
+back-to-home-btn:hover {
+  background-color: #ff9aa2;
+  transform: translateY(-10px);
 }
 
-/* Responsive Styles for Laptops (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .title-loves {
-    font-size: 1.5rem;
-    top: -40px;
-    left: 100px;
-  }
-
-  .title-photobooth {
-    font-size: 3.5rem;
-    left: -20px;
+/* Responsive Styles */
+/* Laptops (1024px and above) */
+@media (max-width: 1024px) {
+  .title-image {
+    width: 25rem; /* Slightly smaller for laptops */
   }
 
   .subheading {
@@ -259,50 +397,41 @@ video {
   }
 
   #collage-page {
-    flex-direction: column;
-    align-items: center;
+    width: 95%; /* Increase width for smaller screens */
+    height: 95vh; /* Increase height for smaller screens */
+    gap: 15px; /* Reduce spacing between panel and collage */
   }
 
   #customization-panel {
-    width: 80%;
+    flex: 0 1 25%; /* 25% width for laptops */
+    min-width: 250px; /* Slightly wider for laptops */
+    padding: 20px; /* Standard padding */
   }
 
-  #final-canvas {
-    width: 80%;
-    height: auto;
-  }
-
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .back-to-home-btn {
-      font-size: 0.9rem; /* Standard font size for laptops */
-      padding: 6px 12px; /* Slightly larger padding for laptops */
-    }
+  #collage-display {
+    flex: 1 1 75%; /* 75% width for laptops */
   }
 }
 
-/* Responsive Styles for Tablets (481px - 768px) */
-@media (max-width: 768px) {
-  .title-loves {
-    font-size: 1.5rem;
-    top: -40px;
-    left: 100px;
-  }
-
-  .title-photobooth {
-    font-size: 3.5rem;
-    left: -20px;
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .title-image {
+    width: 40rem;
   }
 
   .subheading {
-    font-size: 1.2rem;
-    top: -50px;
+    font-size: 1.5rem;
+    top: -80px;
     left: 20px;
   }
 
   .camera-container {
-    width: 90%;
-    height: auto;
+    width: 100%;
     padding: 5px;
+  }
+
+  #capture-btn {
+    padding:5px;
   }
 
   button {
@@ -320,55 +449,133 @@ video {
   }
 
   #collage-page {
-    flex-direction: column;
-    align-items: center;
+    width: 95%; /* Increase width for tablets */
+    height: 95vh; /* Increase height for tablets */
+    gap: 15px; /* Reduce spacing between panel and collage */
   }
 
   #customization-panel {
-    width: 90%;
+    flex: 0 1 30%; /* 30% width for tablets */
+    min-width: 200px; /* Adjust minimum width */
+    padding: 15px; /* Reduce padding */
   }
 
-  @media (min-width: 481px) and (max-width: 768px) {
-    .back-to-home-btn {
-      font-size: 0.85rem; /* Slightly larger font size for tablets */
-      padding: 5px 10px; /* Standard padding for tablets */
-    }
+  #collage-display {
+    flex: 1 1 70%; /* 70% width for tablets */
+  }
+
+  #final-canvas {
+    max-height: 75vh; /* Slightly smaller height for tablets */
   }
 }
 
-/* Responsive Styles for Phones (up to 480px) */
-@media (max-width: 480px) {
-  .title-loves {
-    font-size: 1.2rem;
-    top: -30px;
-    left: 80px;
-  }
-
-  .title-photobooth {
-    font-size: 2.5rem;
-    left: -15px;
+/* Phones (up to 767px) */
+@media (max-width: 767px) {
+  .title-image {
+    width: 30rem; /* Smaller image for phones */
   }
 
   .subheading {
-    font-size: 1rem;
-    top: -40px;
+    font-size: 1.2rem; /* Smaller font size for phones */
+    top: -70px; /* Adjust positioning */
+    left: 10px; /* Adjust positioning */
+  }
+
+  .camera-container {
+    width: 95%; /* Slightly wider for phones */
+    padding: 5px; /* Minimal padding */
+    border-width: 5px; /* Thinner border */
+  }
+
+  button {
+    font-size: 1rem; /* Smaller font size for buttons */
+    padding: 6px 12px; /* Smaller padding for buttons */
+  }
+
+  #countdown {
+    font-size: 1.2rem; /* Smaller font size for countdown */
+  }
+
+  #photos img {
+    width: 60px; /* Smaller photo previews */
+    height: 60px; /* Smaller photo previews */
+  }
+
+  #collage-page {
+    width: 100%; /* Use full viewport width */
+    height: 100vh; /* Use full viewport height */
+    padding: 10px; /* Reduce padding for phones */
+    gap: 10px; /* Reduce spacing between panel and collage */
+  }
+
+  #customization-panel {
+    flex: 0 1 35%; /* 35% width for phones */
+    min-width: 150px; /* Adjust minimum width */
+    padding: 10px; /* Reduce padding */
+  }
+
+  #customization-panel h2 {
+    font-size: 1.2rem; /* Smaller font size for panel title */
+  }
+
+  #customization-panel label {
+    font-size: 0.8rem; /* Smaller font size for labels */
+  }
+
+  #customization-panel input {
+    padding: 5px; /* Smaller padding for inputs */
+    font-size: 0.8rem; /* Smaller font size for inputs */
+  }
+
+  #customization-panel button {
+    padding: 6px 12px; /* Smaller padding for buttons */
+    font-size: 0.9rem; /* Smaller font size for buttons */
+  }
+
+  #collage-display {
+    flex: 1 1 65%; /* 65% width for phones */
+  }
+
+  #final-canvas {
+    max-height: 70vh; /* Smaller height for phones */
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .title-image {
+    width: 80%;
+    max-width: 40rem;
+  }
+
+  .subheading {
+    font-size: .8rem;
+    top: -55px;
     left: 15px;
+    margin-top: 10px;
   }
 
   .camera-container {
     width: 100%;
-    height: auto;
     padding: 5px;
     border-width: 5px;
   }
 
   button {
     font-size: 1rem;
-    padding: 6px 12px;
+    padding: 8px 16px;
   }
 
   #countdown {
     font-size: 1.2rem;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+    margin-top: 10px;
   }
 
   #photos img {
@@ -376,20 +583,21 @@ video {
     height: 60px;
   }
 
+  #collage-page {
+    gap: 5px; /* Further reduce spacing */
+  }
+
   #customization-panel {
-    width: 100%;
-    padding: 10px;
+    flex: 0 1 40%; /* 40% width for very small phones */
+    min-width: 120px; /* Adjust minimum width */
+    padding: 8px; /* Further reduce padding */
+  }
+
+  #collage-display {
+    flex: 1 1 60%; /* 60% width for very small phones */
   }
 
   #final-canvas {
-    width: 100%;
-    height: auto;
-  }
-
-  @media (max-width: 480px) {
-    .back-to-home-btn {
-      font-size: 0.8rem; /* Even smaller font size for phones */
-      padding: 4px 8px; /* Smaller padding for phones */
-    }
+    max-height: 60vh; /* Smaller height for very small phones */
   }
 }
