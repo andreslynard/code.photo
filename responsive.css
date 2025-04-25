@@ -1,0 +1,198 @@
+/* === Responsive Media Queries === */
+
+/* Devices ≥ 1024px (Large screens / tablets landscape) */
+@media (min-width: 1024px) {
+  html, body {
+    overflow: hidden;
+  }
+
+  .title-image {
+    width: 30rem;
+  }
+
+  .camera-container {
+    scale: 80%;
+    position: relative;
+    top: -20px;
+  }
+
+  #countdown {
+    top: -590px;
+    font-size: 1.2rem;
+  }
+
+  #capture-btn {
+    position: relative;
+    top: -20px;
+  }
+
+  #customization-panel {
+    flex: 0 0 30%; /* 30% width for tablets */
+    min-width: 200px; /* Adjust minimum width */
+    padding: 10px; /* Reduce padding */
+  }
+
+  #final-canvas {
+    width: 60%;
+    height: 100%;
+  }
+}
+
+/* Devices between 1023px and 768px (Small tablets / landscape phones) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  html, body {
+    overflow: hidden;
+  }
+
+  .page,
+  .welcome-page,
+  #collage-page {
+    scale: 90%;
+    padding: 10px;
+  }
+
+  .title-image {
+    width: 20rem;
+  }
+
+  .camera-container {
+    flex-direction: column;
+    scale: 80%;
+  }
+
+  #countdown {
+    top: -300px;
+    font-size: 1.2rem;
+  }
+
+  #photos {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 200px;
+    overflow-y: hidden;
+  }
+
+  #photos img {
+    width: 80px;
+    height: 80px;
+  }
+
+  #collage-page {
+    width: 95%; /* Increase width for tablets */
+    height: 95vh; /* Increase height for tablets */
+    gap: 15px; /* Reduce spacing between panel and collage */
+  }
+
+  #customization-panel {
+    flex: 0 1 30%; /* 30% width for tablets */
+    min-width: 200px; /* Adjust minimum width */
+    padding: 15px; /* Reduce padding */
+  }
+
+  #collage-display {
+    flex: 1 1 70%; /* 70% width for tablets */
+  }
+
+  #final-canvas {
+    max-height: 75vh; /* Slightly smaller height for tablets */
+  }
+}
+
+
+/* Devices ≤ 767px (Mobile phones) */
+@media (max-width: 767px) and (min-width: 320px) {
+  html, body {
+    overflow: hidden;
+  }
+
+  .page,
+  .welcome-page,
+  #collage-page {
+    scale: 80%;
+    padding: 5px;
+  }
+
+  .title-image {
+    width: 15rem;
+  }
+
+  .subheading {
+    font-size: 1.2rem;
+    top: -40px;
+    left: 0;
+  }
+
+  button,
+  #capture-btn,
+  #customization-panel button,
+  .back-to-home-btn {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+
+  .camera-container {
+    flex-direction: column;
+    scale: 75%;
+    width: 100%;
+  }
+
+  #photos {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 200px;
+    overflow-y: hidden;
+  }
+
+  #photos img {
+    width: 30px;
+    height: 30px;
+    scale: 80%;
+    object-fit: cover;
+  }
+
+  #countdown {
+    font-size: 1rem;
+    top: -500px;
+  }
+
+  #collage-page {
+    width: 100%; /* Use full viewport width */
+    height: 100vh; /* Use full viewport height */
+    padding: 10px; /* Reduce padding for phones */
+    gap: 10px; /* Reduce spacing between panel and collage */
+  }
+
+  #customization-panel {
+    flex: 0 1 35%; /* 35% width for phones */
+    min-width: 150px; /* Adjust minimum width */
+    padding: 10px; /* Reduce padding */
+  }
+
+  #customization-panel h2 {
+    font-size: 1.2rem; /* Smaller font size for panel title */
+  }
+
+  #customization-panel label {
+    font-size: 0.8rem; /* Smaller font size for labels */
+  }
+
+  #customization-panel input {
+    padding: 5px; /* Smaller padding for inputs */
+    font-size: 0.8rem; /* Smaller font size for inputs */
+  }
+
+  #customization-panel button {
+    padding: 6px 12px; /* Smaller padding for buttons */
+    font-size: 0.9rem; /* Smaller font size for buttons */
+  }
+
+  #collage-display {
+    flex: 1 1 65%; /* 65% width for phones */
+  }
+
+  #final-canvas {
+    max-height: 70vh; /* Smaller height for phones */
+  }
+}
