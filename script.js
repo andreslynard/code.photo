@@ -164,7 +164,7 @@ const collageConfig = {
   textColor: '#ffffff',
   fontFamily: 'Montserrat, sans-serif',
   placeholderText: 'insert photo',
-  bottomText: 'loves photobooth',
+  bottomText: '04.27.2024-04.27-2025',
   numberOfPhotos: 4,
   photoPositions: []
 };
