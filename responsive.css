@@ -7,13 +7,13 @@
   }
 
   .title-image {
-    width: 30rem;
+    width: 20rem;
   }
 
   .camera-container {
-    scale: 80%;
+    scale: 70%;
     position: relative;
-    top: -20px;
+    top: -40px;
   }
 
   #countdown {
@@ -23,7 +23,7 @@
 
   #capture-btn {
     position: relative;
-    top: -20px;
+    top: -90px;
   }
 
   #customization-panel {
@@ -138,6 +138,7 @@
   }
 
   #photos {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -194,5 +195,26 @@
 
   #final-canvas {
     max-height: 70vh; /* Smaller height for phones */
+  }
+}
+
+@media (max-width: 400px) {
+  #photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  #photos img {
+    width: 45%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .camera-container {
+    scale: 70%;
   }
 }
