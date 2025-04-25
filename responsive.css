@@ -8,6 +8,8 @@
 
   .title-image {
     width: 20rem;
+    position: relative;
+    top: 30px;
   }
 
   .camera-container {
@@ -17,7 +19,7 @@
   }
 
   #countdown {
-    top: -590px;
+    top: -560px;
     font-size: 1.2rem;
   }
 
