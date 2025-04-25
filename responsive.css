@@ -27,9 +27,10 @@
   }
 
   #customization-panel {
-    flex: 0 0 30%; /* 30% width for tablets */
+    flex: 0 0 50%; /* 30% width for tablets */
     min-width: 200px; /* Adjust minimum width */
     padding: 10px; /* Reduce padding */
+    scale: 80%;
   }
 
   #final-canvas {
@@ -57,11 +58,11 @@
 
   .camera-container {
     flex-direction: column;
-    scale: 80%;
+    scale: 70%;
   }
 
   #countdown {
-    top: -300px;
+    top: -670px;
     font-size: 1.2rem;
   }
 
@@ -88,6 +89,7 @@
     flex: 0 1 30%; /* 30% width for tablets */
     min-width: 200px; /* Adjust minimum width */
     padding: 15px; /* Reduce padding */
+    scale: 80%;
   }
 
   #collage-display {
@@ -155,7 +157,7 @@
 
   #countdown {
     font-size: 1rem;
-    top: -500px;
+    top: -650px;
   }
 
   #collage-page {
@@ -255,7 +257,7 @@
 
   #countdown {
     font-size: 1rem;
-    top: -450px;
+    top: -500px;
   }
 
   #collage-page {
